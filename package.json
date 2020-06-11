@@ -17,7 +17,15 @@
     "prepublishOnly": "npm run build && npm version patch",
     "postpublish": "git push"
   },
-  "keywords": [],
+  "keywords": [
+    "json-schema",
+    "jsonschema",
+    "validate",
+    "schema",
+    "json",
+    "validation",
+    "validator"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
