@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "britesnow.vscode-toggle-quotes",
+    "christian-kohler.path-intellisense",
+    "codezombiech.gitignore",
+    "coenraads.bracket-pair-colorizer",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "gruntfuggly.todo-tree",
+    "mikestead.dotenv",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "steoates.autoimport",
+    "stepsize.tech-debt-tracker",
+    "streetsidesoftware.code-spell-checker",
+    "waderyan.gitblame"
+  ]
+}

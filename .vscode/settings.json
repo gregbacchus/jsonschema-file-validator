@@ -1,0 +1,41 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.tabSize": 2,
+  "eslint.codeAction.disableRuleComment": {
+    "enable": true,
+    "location": "separateLine"
+  },
+  "eslint.enable": true,
+  "files.exclude": {
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/*.js.map": true,
+    "**/*.vscode": false,
+    "**/.DS_Store": true,
+    "**/.git/": true,
+    "**/.idea/": true,
+    "**/node_modules/": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "javascript.preferences.quoteStyle": "single",
+  "peacock.color": "#1c0c3c",
+  "tslint.enable": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.quoteStyle": "single",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#1c0c3c",
+    "statusBar.border": "#1c0c3c",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#301466",
+    "titleBar.activeBackground": "#1c0c3c",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.border": "#1c0c3c",
+    "titleBar.inactiveBackground": "#1c0c3c99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
+}
