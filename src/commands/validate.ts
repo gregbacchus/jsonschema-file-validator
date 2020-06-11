@@ -6,13 +6,13 @@ import * as glob from 'glob';
 import { resolve } from 'path';
 
 interface ValidateOptions {
-  rootDir?: string,
+  root?: string,
   files: string;
 }
 
-export const validate = ({ files: globFiles, rootDir }: ValidateOptions): void => {
-  const schemaRoot = rootDir ?? process.cwd();
-  console.error('Search for files matching ', globFiles, 'in', rootDir);
+export const validate = ({ files: globFiles, root }: ValidateOptions): void => {
+  const schemaRoot = root ?? process.cwd();
+  console.error('Search for files matching ', globFiles, 'in', root);
   glob(globFiles, { cwd: schemaRoot, nodir: true }, (err, paths) => {
     if (err) {
       console.error(err);
@@ -25,7 +25,12 @@ export const validate = ({ files: globFiles, rootDir }: ValidateOptions): void =
 
     Promise.all(paths.map((path) => validateFile(path, schemaRoot)))
       .then((results) => {
-        console.error('OK', results.reduce((acc, valid) => acc && valid, true));
+        const allValid = results.reduce((acc, valid) => acc && valid, true);
+        if (!allValid) {
+          console.error(chalk.redBright('Some files were invalid'));
+          process.exit(1);
+        }
+        console.error(chalk.green('All files were valid'));
       }).catch((err) => {
         console.error(err);
         process.exit(1);
