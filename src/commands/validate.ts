@@ -12,7 +12,7 @@ interface ValidateOptions {
 
 export const validate = ({ files: globFiles, root }: ValidateOptions): void => {
   const schemaRoot = root ?? process.cwd();
-  console.error('Search for files matching ', globFiles, 'in', root);
+  console.error('Search for files matching', globFiles, 'in', root);
   glob(globFiles, { cwd: schemaRoot, nodir: true }, (err, paths) => {
     if (err) {
       console.error(err);
@@ -45,6 +45,10 @@ const validateFile = async (file: string, baseDir: string): Promise<boolean> => 
   const loadSchema = async (uri: string): Promise<Record<string, unknown> | boolean> => {
     if (REGEX_WEB.test(uri)) {
       const result = await axios.get(uri);
+      if (result.status >= 400) { throw new Error(`Loading error: ${result.status}`); }
+      return result.data as Record<string, unknown>;
+    } else if (REGEX_WEB.test(baseDir)) {
+      const result = await axios.get(uri, { baseURL: baseDir });
       if (result.status >= 400) { throw new Error(`Loading error: ${result.status}`); }
       return result.data as Record<string, unknown>;
     } else {
